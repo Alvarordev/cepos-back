@@ -1,8 +1,8 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import * as dotenv from 'dotenv';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import { ValidationPipe } from "@nestjs/common";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import * as dotenv from "dotenv";
 // import { SeedService } from './seeds/seed/seed.service';
 
 async function bootstrap() {
@@ -11,7 +11,7 @@ async function bootstrap() {
   dotenv.config();
 
   app.enableCors();
-  app.setGlobalPrefix('api/v1');
+  app.setGlobalPrefix("api/v1");
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -21,28 +21,28 @@ async function bootstrap() {
   );
 
   const options = new DocumentBuilder()
-    .setTitle('API REST CEPOS')
+    .setTitle("API REST CEPOS")
     .setDescription(
       `
        API REST para cepos
       `,
     )
-    .setVersion('1.0')
+    .setVersion("1.0")
     .addBearerAuth(
-      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
-      'jwt',
+      { type: "http", scheme: "bearer", bearerFormat: "JWT" },
+      "jwt",
     )
-    .setExternalDoc('api-json', 'api-json')
+    .setExternalDoc("api-json", "api-json")
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document, {
-    jsonDocumentUrl: 'api/api-json',
+  SwaggerModule.setup("api", app, document, {
+    jsonDocumentUrl: "api/api-json",
   });
 
   // const seedService = app.get(SeedService);
   // await seedService.seedEmpresas();
 
-  await app.listen(3001);
+  await app.listen(process.env.PORT || 3001);
 }
 bootstrap();
