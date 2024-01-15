@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { CreateMultaDto } from './dto/create-multa.dto';
-import { UpdateMultaDto } from './dto/update-multa.dto';
-import { Multa } from './entities/multa.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Injectable } from "@nestjs/common";
+import { CreateMultaDto } from "./dto/create-multa.dto";
+import { UpdateMultaDto } from "./dto/update-multa.dto";
+import { Multa } from "./entities/multa.entity";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
 
 @Injectable()
 export class MultaService {
@@ -19,14 +19,14 @@ export class MultaService {
 
   async findAll() {
     return await this.multaRepository.find({
-      relations: ['empresa', 'tipocepo', 'usuariobloqueo', 'usuariodesbloqueo'],
+      relations: ["empresa", "tipocepo", "usuariobloqueo", "usuariodesbloqueo"],
     });
   }
 
   async findOne(id: number) {
     return await this.multaRepository.findOne({
       where: [{ iCodMulta: id }],
-      relations: ['empresa', 'tipocepo', 'usuariobloqueo', 'usuariodesbloqueo'],
+      relations: ["empresa", "tipocepo", "usuariobloqueo", "usuariodesbloqueo"],
     });
   }
 

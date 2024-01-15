@@ -1,5 +1,5 @@
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { Multa } from 'src/multa/entities/multa.entity';
+import { Empresa } from "src/empresa/entities/empresa.entity";
+import { Multa } from "src/multa/entities/multa.entity";
 import {
   Column,
   Entity,
@@ -7,7 +7,7 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
-} from 'typeorm';
+} from "typeorm";
 
 @Entity()
 export class Tipocepo {
@@ -20,7 +20,7 @@ export class Tipocepo {
   @Column()
   vDescripcionCepo: string;
 
-  @Column({ type: 'numeric' })
+  @Column({ type: "numeric" })
   vCostoCepo: number;
 
   @Column({
@@ -32,8 +32,8 @@ export class Tipocepo {
   iCodigoUsuarioCreacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
-    default: () => 'now()',
+    type: "timestamp without time zone",
+    default: () => "now()",
   })
   dtFechaCreacion: Date;
 
@@ -43,13 +43,13 @@ export class Tipocepo {
   iCodigoUsuarioModificacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
+    type: "timestamp without time zone",
     nullable: true,
   })
   dtFechaModificacion: Date;
 
   @ManyToOne(() => Empresa, (empresa) => empresa.perfiles)
-  @JoinColumn({ name: 'iCodEmpresa' })
+  @JoinColumn({ name: "iCodEmpresa" })
   empresa: Empresa;
 
   @OneToMany(() => Multa, (multa) => multa.tipocepo)
