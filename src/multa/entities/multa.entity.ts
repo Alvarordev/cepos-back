@@ -1,13 +1,13 @@
-import { Empresa } from 'src/empresa/entities/empresa.entity';
-import { Tipocepo } from 'src/tipocepo/entities/tipocepo.entity';
-import { Usuario } from 'src/usuarios/entities/usuario.entity';
+import { Empresa } from "src/empresa/entities/empresa.entity";
+import { Tipocepo } from "src/tipocepo/entities/tipocepo.entity";
+import { Usuario } from "src/usuarios/entities/usuario.entity";
 import {
   Column,
   Entity,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
-} from 'typeorm';
+} from "typeorm";
 
 @Entity()
 export class Multa {
@@ -20,10 +20,10 @@ export class Multa {
   @Column()
   iCodTipoCepo: number;
 
-  @Column({ type: 'numeric' })
+  @Column({ type: "numeric" })
   gCoordenadasXMulta: number;
 
-  @Column({ type: 'numeric' })
+  @Column({ type: "numeric" })
   gCoordenadasYMulta: number;
 
   @Column()
@@ -57,7 +57,7 @@ export class Multa {
   vCodigoPreliquidacion: string;
 
   @Column({
-    type: 'timestamp without time zone',
+    type: "timestamp without time zone",
     nullable: true,
   })
   dFechaPago: Date;
@@ -68,7 +68,7 @@ export class Multa {
   iCodUsuarioBloqueo: number;
 
   @Column({
-    type: 'timestamp without time zone',
+    type: "timestamp without time zone",
     nullable: true,
   })
   dtFechaBloqueo: Date;
@@ -79,7 +79,7 @@ export class Multa {
   iCodUsuarioDesbloqueo: number;
 
   @Column({
-    type: 'timestamp without time zone',
+    type: "timestamp without time zone",
     nullable: true,
   })
   dtFechaDesbloqueo: Date;
@@ -93,8 +93,8 @@ export class Multa {
   iCodigoUsuarioCreacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
-    default: () => 'now()',
+    type: "timestamp without time zone",
+    default: () => "now()",
   })
   dtFechaCreacion: Date;
 
@@ -104,24 +104,24 @@ export class Multa {
   iCodigoUsuarioModificacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
+    type: "timestamp without time zone",
     nullable: true,
   })
   dtFechaModificacion: Date;
 
   @ManyToOne(() => Empresa, (empresa) => empresa.perfiles)
-  @JoinColumn({ name: 'iCodEmpresa' })
+  @JoinColumn({ name: "iCodEmpresa" })
   empresa: Empresa;
 
   @ManyToOne(() => Tipocepo, (tipocepo) => tipocepo.multas)
-  @JoinColumn({ name: 'iCodTipoCepo' })
+  @JoinColumn({ name: "iCodTipoCepo" })
   tipocepo: Tipocepo;
 
   @ManyToOne(() => Usuario, (usuario) => usuario.multaUsuarioBloqueo)
-  @JoinColumn({ name: 'iCodUsuarioBloqueo' })
+  @JoinColumn({ name: "iCodUsuarioBloqueo" })
   usuariobloqueo: Tipocepo;
 
   @ManyToOne(() => Usuario, (usuario) => usuario.multaUsuarioDesbloqueo)
-  @JoinColumn({ name: 'iCodUsuarioDesbloqueo' })
+  @JoinColumn({ name: "iCodUsuarioDesbloqueo" })
   usuariodesbloqueo: Tipocepo;
 }

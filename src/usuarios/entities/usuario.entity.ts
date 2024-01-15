@@ -1,5 +1,5 @@
-import { Perfil } from 'src/perfil/entities/perfil.entity';
-import { Empresa } from 'src/empresa/entities/empresa.entity';
+import { Perfil } from "src/perfil/entities/perfil.entity";
+import { Empresa } from "src/empresa/entities/empresa.entity";
 import {
   Column,
   Entity,
@@ -7,8 +7,8 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
-} from 'typeorm';
-import { Multa } from 'src/multa/entities/multa.entity';
+} from "typeorm";
+import { Multa } from "src/multa/entities/multa.entity";
 
 @Entity()
 export class Usuario {
@@ -28,7 +28,7 @@ export class Usuario {
   vClaveUsuario: string;
 
   @Column({
-    type: 'date',
+    type: "date",
     nullable: true,
   })
   dtFechaVencimiento: Date;
@@ -42,8 +42,8 @@ export class Usuario {
   iCodigoUsuarioCreacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
-    default: () => 'now()',
+    type: "timestamp without time zone",
+    default: () => "now()",
   })
   dtFechaCreacion: Date;
 
@@ -53,17 +53,17 @@ export class Usuario {
   iCodigoUsuarioModificacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
+    type: "timestamp without time zone",
     nullable: true,
   })
   dtFechaModificacion: Date;
 
   @ManyToOne(() => Empresa, (empresa) => empresa.usuarios)
-  @JoinColumn({ name: 'iCodEmpresa' })
+  @JoinColumn({ name: "iCodEmpresa" })
   empresa: Empresa;
 
   @ManyToOne(() => Perfil, (perfil) => perfil.usuarios)
-  @JoinColumn({ name: 'iCodPerfil' })
+  @JoinColumn({ name: "iCodPerfil" })
   perfil: Perfil;
 
   @OneToMany(() => Multa, (multa) => multa.usuariobloqueo)

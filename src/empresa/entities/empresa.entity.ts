@@ -1,6 +1,6 @@
-import { Perfil } from 'src/perfil/entities/perfil.entity';
-import { Usuario } from 'src/usuarios/entities/usuario.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Perfil } from "src/perfil/entities/perfil.entity";
+import { Usuario } from "src/usuarios/entities/usuario.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Empresa {
@@ -19,8 +19,8 @@ export class Empresa {
   iCodigoUsuarioCreacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
-    default: () => 'now()',
+    type: "timestamp without time zone",
+    default: () => "now()",
   })
   dtFechaCreacion: Date;
 
@@ -30,7 +30,7 @@ export class Empresa {
   iCodigoUsuarioModificacion: number;
 
   @Column({
-    type: 'timestamp without time zone',
+    type: "timestamp without time zone",
     nullable: true,
   })
   dtFechaModificacion: Date;

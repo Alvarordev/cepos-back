@@ -1,8 +1,8 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { MultaController } from './multa.controller';
-import { MultaService } from './multa.service';
+import { Test, TestingModule } from "@nestjs/testing";
+import { MultaController } from "./multa.controller";
+import { MultaService } from "./multa.service";
 
-describe('MultaController', () => {
+describe("MultaController", () => {
   let controller: MultaController;
 
   beforeEach(async () => {
@@ -14,7 +14,7 @@ describe('MultaController', () => {
     controller = module.get<MultaController>(MultaController);
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(controller).toBeDefined();
   });
 });
