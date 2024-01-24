@@ -107,13 +107,6 @@ export class CreateMultaDto {
   })
   vCodigoPreliquidacion: string;
 
-  @IsDateString()
-  @ApiProperty({
-    example: "2023-12-31 15:30:30",
-    description: "Fecha de pago",
-  })
-  dFechaPago: Date;
-
   @IsNumber()
   @IsOptional()
   @ApiProperty({
