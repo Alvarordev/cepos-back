@@ -32,7 +32,7 @@ export class MultaService {
 
   async update(id: number, updateMultaDto: UpdateMultaDto) {
     const multaExistente = await this.multaRepository.findOne({
-      where: [{ iCodTipoCepo: id }],
+      where: [{ iCodMulta: id }],
     });
     if (!multaExistente) {
       return undefined;
