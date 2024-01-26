@@ -59,14 +59,6 @@ export class UpdateMultaDto extends PartialType(CreateMultaDto) {
   })
   vConceptoMulta: string;
 
-  @IsNumber()
-  @IsOptional()
-  @ApiProperty({
-    example: 999.99,
-    description: "Costo de multa",
-  })
-  dpCostoMulta: number;
-
   @IsString()
   @IsOptional()
   @ApiProperty({
